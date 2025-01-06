@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Guests;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Guests\GuestCreateRequest;
 use App\Interfaces\Guests\GuestInterface;
 use App\Models\Guest;
 use Illuminate\Http\Request;
@@ -21,15 +22,15 @@ class GuestController extends Controller
      */
     public function index()
     {
-        //
+        return $this->repository->index();
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(GuestCreateRequest $request)
     {
-        return $this->repository->index();
+        return $this->repository->store($request);
     }
 
     /**
@@ -43,7 +44,7 @@ class GuestController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Guest $guest)
+    public function update(GuestCreateRequest $request, Guest $guest)
     {
         return $this->repository->update($request,$guest);
 
