@@ -2,16 +2,18 @@
 
 namespace App\Providers;
 
+use App\Interfaces\Guests\GuestInterface;
+use App\Repositories\Guests\GuestRepository;
 use Illuminate\Support\ServiceProvider;
 
-class AppServiceProvider extends ServiceProvider
+class RepositoriesProvider extends ServiceProvider
 {
     /**
      * Register any application services.
      */
     public function register(): void
     {
-        $this->app->register(RepositoriesProvider::class);
+        $this->app->bind(GuestInterface::class,GuestRepository::class);
     }
 
     /**
