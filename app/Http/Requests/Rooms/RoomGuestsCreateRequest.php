@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class RoomCreateRequest extends FormRequest
+class RoomGuestsCreateRequest extends FormRequest
 {
 
     /**
@@ -17,10 +17,8 @@ class RoomCreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'room_status_id' => 'nullable|exists:room_statuses,id',
-            'title' => 'nullable|string|max:225',
-            'description' => 'nullable|string',
-            'capacity' => 'nullable|numeric',
+            'guest_id' => 'required|exists:guests,id',
+            'description' => 'nullable|string'
         ];
     }
 

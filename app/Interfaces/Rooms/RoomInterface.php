@@ -13,4 +13,10 @@ interface RoomInterface
 
     public function destroy($item);
 
+    public function guests_index($room);
+
+    public function guests_store( $request,$room);
+
+    public function guests_destroy($room,$item);
+
 }

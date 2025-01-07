@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Rooms;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Rooms\RoomCreateRequest;
+use App\Http\Requests\Rooms\RoomGuestsCreateRequest;
 use App\Interfaces\Rooms\RoomInterface;
 use App\Models\Room;
+use App\Models\Room_Guest;
 
 class RoomController extends Controller
 {
@@ -57,4 +59,22 @@ class RoomController extends Controller
         return $this->repository->destroy($room);
 
     }
+
+    public function guests_index(Room $room)
+    {
+        return $this->repository->guests_index($room);
+    }
+
+    public function guests_store(RoomGuestsCreateRequest $request,Room $room)
+    {
+        return $this->repository->guests_store($request,$room);
+
+    }
+
+    public function guests_delete(Room $room,Room_Guest $guest)
+    {
+        return $this->repository->guests_destroy($room,$guest);
+    }
+
+
 }

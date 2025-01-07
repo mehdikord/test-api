@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('room_status_id')->nullable();
             $table->string('title')->nullable();
             $table->integer('code')->nullable();
-            $table->integer('opacity')->nullable()->default(2);
+            $table->integer('capacity')->nullable()->default(2);
             $table->text('description')->nullable();
             $table->boolean('is_active')->default(1);
             $table->timestamps();
